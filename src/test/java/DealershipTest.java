@@ -9,7 +9,7 @@ import vehicles.Vehicle;
 
 import static org.junit.Assert.assertEquals;
 
-public class CustomerTest {
+public class DealershipTest {
 
     Customer customer;
     Vehicle vehicle;
@@ -19,7 +19,6 @@ public class CustomerTest {
     GearBox gearbox;
     Tyres tyres;
 
-
     @Before
     public void before() {
         dealership = new Dealership("Arnold Clark", 10000.00);
@@ -28,22 +27,24 @@ public class CustomerTest {
         engine = new Engine(100, 2);
         gearbox = new GearBox("Manual");
         tyres = new Tyres(22, "Goodyear");
+
+
     }
 
     @Test
-    public void hasName() {
-        assertEquals("John", customer.getName());
+    public void dealershipCanBuy() {
+        dealership.buyCar(vehicle);
+        assertEquals(8000.00, dealership.getTill(), 0.0);
+        assertEquals(1, dealership.getCars().size());
     }
-
-//    @Test
-//    public void hasMoney() {
-//        assertEquals(100000, customer.getMoney());
-//    }
 
     @Test
-    public void customerCanBuy() {
-        customer.buyCar(vehicle);
-        assertEquals(1000.00, customer.getMoney(), 0.0);
-        assertEquals(1, customer.getOwnedVehicles().size());
+    public void dealershipCanSellCar() {
+        dealership.sellCarToCustomer(vehicle, customer);
+        assertEquals(1000, customer.getMoney(), 0.0);
+
     }
+
 }
+
+

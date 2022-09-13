@@ -4,11 +4,11 @@ import components.Engine;
 import components.GearBox;
 import components.Tyres;
 
-public abstract class Vehicle {
+public class Vehicle {
     private Engine engine;
     private GearBox gearbox;
     private Tyres tyres;
-    private int price;
+    private double price;
     private String colour;
 
     private String make;
@@ -19,7 +19,7 @@ public abstract class Vehicle {
 
     private Boolean hybrid;
 
-    public Vehicle(Engine engine, GearBox gearbox, Tyres tyres, int price, String colour, String make, String model, Boolean electric, Boolean hybrid) {
+    public Vehicle(Engine engine, GearBox gearbox, Tyres tyres, double price, String colour, String make, String model, Boolean electric, Boolean hybrid) {
         this.engine = engine;
         this.gearbox = gearbox;
         this.tyres = tyres;
@@ -43,7 +43,7 @@ public abstract class Vehicle {
         return tyres;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
